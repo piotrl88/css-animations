@@ -1,0 +1,81 @@
+@import "compass/css3";
+
+
+
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.main {
+	@include background-image(linear-gradient(to bottom right, white, #ff0000));
+	position: relative;	
+	height: 100%;
+	&:before {		
+		@include opacity(0.6);
+		position: absolute;
+		content: '';
+		width: 100%;
+		height: 100%;
+		background: url('../img/stars.jpg') repeat;
+		background-size: cover;
+
+		-webkit-backface-visibility: none;
+		-webkit-animation: scale 8s linear;
+    	animation: scale 8s linear;		
+	}
+	
+	&:after {
+		@include opacity(0.7);
+		@include transform(perspective(100px) rotateX(45deg));
+		position: absolute;
+		content: '';
+		width: 100%;
+		height: 100%;
+		background: url('../img/net.png') repeat;
+		
+
+		-webkit-backface-visibility: none;
+		-webkit-animation: move 8s linear;
+    	animation: move 8s linear;		
+	}
+}
+
+@-webkit-keyframes move {
+  from { 
+  	background-position: 0% 0%;
+  }  
+  to { 
+  	background-position: 0% 50%;
+  } 
+}
+
+@keyframes move {
+  from { 
+  	background-position: 0% 0%;
+  }  
+  to { 
+  	background-position: 0% 50%;
+  }  
+}
+
+
+@-webkit-keyframes scale {
+  from { 
+  	background-size: 100% 100%;
+  }
+  
+  to { 
+  	background-size: 150% 150%;
+  } 
+}
+
+@keyframes scale {
+  from { 
+  	background-size: 100% 100%;
+  }  
+  to { 
+  	background-size: 150% 150%;
+  }  
+}
